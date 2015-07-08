@@ -34,17 +34,12 @@
       leaderText = '.about-leader p:first-child',
       leaderText2 = '.about-leader p:nth-child(2)',
       toc = '.toc',
-      truthVision = '.truth-vision',
       baseDuration = $(window).height();
 
   TweenLite.set(logo, { className: '+=header-logo--hide' });
   TweenLite.set(leaderText, { opacity: 1 });
   TweenLite.set(leaderText2, { opacity: 0 });
   TweenLite.set(toc, { opacity: 0, scale: 0 });
-  TweenLite.set(truthVision + ' .left', {
-        rotationX: 90,
-        opacity: 0
-    });
 
   new ScrollMagic.Scene({
         duration: 0,
@@ -52,7 +47,8 @@
         triggerHook: "onEnter"
       })
       .setTween(leaderContainer, {
-        scale: 1
+        marginTop: 0,
+        marginBottom: 0
       })
       .addTo(aboutControllerIndex);
 
@@ -141,19 +137,50 @@
       .addTo(aboutControllerIndex)
       .addIndicators({name: 'leaderContainer '});
 
-  new ScrollMagic.Scene({
-        duration: baseDuration * 0.7,
-        triggerElement: truthVision,
-        triggerHook: 'onLeave'
-      })
-      .setPin(truthVision)
-      .addTo(aboutControllerIndex);
+
+  // Slides
+
+  var truthVisionSlides = '.truth-vision-slides',
+      truthVision = '.truth-vision',
+      truth = '.truth',
+      truthText = truth + ' .absolute-center',
+      vision = '.vision',
+      visionText = vision + ' .absolute-center';
+
+  TweenLite
+    .set([truth, vision], {
+      position: 'absolute',
+      top: 0,
+      left: 0
+    });
+
+  TweenLite
+    .set(truthVision + ' .left', {
+      rotationX: 90,
+      opacity: 0
+    });
+
+  TweenLite
+    .set([truthText, visionText], {
+      opacity: 0, marginTop: 10
+    });
+
+  var slideTimeline = new TimelineMax()
+    .add([TweenLite.to(truthVision + ' .left', 0.5, {left: '33%'}),
+          TweenLite.to(truthVision + ' .right', 0.5, {left: '66%', opacity:1})])
+    .add(TweenLite.to(truthVision, 0.5, {opacity: 1}))
+    .add(TweenLite.to(truthVision, 0.5, {opacity: 0}))
+    .add(TweenLite.to(truthText, 0.25, {opacity: 1, marginTop: 0}))
+    .add(TweenLite.to(truth, 1, {opacity: 1}))
+    .add([TweenLite.to(truth, 0.5, {opacity: 0}),
+          TweenLite.to(vision, 0.5, {opacity: 1})])
+    .add(TweenLite.to(visionText, 0.25, {opacity: 1, marginTop: 0}))
+    .add(TweenLite.to(vision, 1, {opacity: 1}));
 
   new ScrollMagic.Scene({
         duration: baseDuration * 0.5,
-        offset: baseDuration * 0.5,
-        triggerElement: truthVision,
-        triggerHook: 'onEnter'
+        triggerElement: truthVisionSlides,
+        triggerHook: 0.5
       })
       .setTween(truthVision + ' .left', {
         rotationX: 0,
@@ -162,24 +189,12 @@
       .addTo(aboutControllerIndex);
 
   new ScrollMagic.Scene({
-        duration: baseDuration * 0.5,
-        triggerElement: truthVision,
+        duration: '300%',
+        triggerElement: truthVisionSlides,
         triggerHook: 'onLeave'
       })
-      .setTween(truthVision + ' .left', {
-        left: '33%'
-      })
-      .addTo(aboutControllerIndex);
-
-  new ScrollMagic.Scene({
-        duration: baseDuration * 0.5,
-        triggerElement: truthVision,
-        triggerHook: 'onLeave'
-      })
-      .setTween(truthVision + ' .right', {
-        left: '66%',
-        opacity: 1
-      })
+      .setPin(truthVisionSlides)
+      .setTween(slideTimeline)
       .addTo(aboutControllerIndex);
 
 })(jQuery);

@@ -19,28 +19,20 @@ function postsService($http, blogUrl, apiKey) {
 }
 function config($routeProvider) {
   $routeProvider.
-    when('/news/listing/:page', {
-      templateUrl: 'news/archive.html',
-      controller: 'listingCtrl'
-    }).
-    when('/tag/:tag/:page', {
-      templateUrl: 'news/listing-tag.html',
-      controller: 'listingCtrl'
-    }).
-    when('/type/:type/:page', {
-      templateUrl: 'news/listing-type.html',
+    when('/:page', {
+      templateUrl: '/templates/news/archive.html',
       controller: 'listingCtrl'
     }).
     when('/detail/:id', {
-      templateUrl: 'detail/detail.html',
+      templateUrl: '/templates/news/detail.html',
       controller: 'detailCtrl'
     }).
     otherwise({
-      redirectTo: '/listing/1'
+      redirectTo: '/1'
     });
 }
 angular.module('tumblrApp', ['ngResource', 'ngRoute', 'ngAnimate'])
-  .value('blogUrl', 'loveaestheticssss.tumblr.com')
+  .value('blogUrl', 'publicworksgallery.tumblr.com')
   .value('apiKey', 'sPaI49yeoSpM27Oy2Ir8SPufAkgyikRQ5GVBwFl9K33YDub749')
   .service('posts', postsService)
   .config(config);

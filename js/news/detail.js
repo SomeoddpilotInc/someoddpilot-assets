@@ -27,6 +27,7 @@
         item.photos.shift() :
         undefined;
       item.body = this.$sce.trustAsHtml(item.body);
+      item.body_abstract = this.$sce.trustAsHtml(item.body_abstract);
       item.caption = this.$sce.trustAsHtml(item.caption);
       if (item.type === 'video') {
         item.player[2].embed_code = this.$sce.trustAsHtml(item.player[2].embed_code);

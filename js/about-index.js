@@ -142,6 +142,7 @@
 
   var truthVisionSlides = '.truth-vision-slides',
       truthVision = '.truth-vision',
+      truthVisionMobile = '.truth-vision--one-col',
       truth = '.truth',
       truthText = truth + ' .absolute-center',
       vision = '.vision',
@@ -155,7 +156,7 @@
     });
 
   TweenLite
-    .set(truthVision + ' .left', {
+    .set(truthVision + ' .display-serif', {
       rotationX: 90,
       opacity: 0
     });
@@ -165,16 +166,34 @@
       opacity: 0, marginTop: 10
     });
 
+  TweenLite
+    .set(truthVisionMobile + ' .sans', {
+      opacity: 0, y: 30
+    });
+
   var slideTimeline = new TimelineMax()
     .add([TweenLite.to(truthVision + ' .left', 0.5, {left: '33%'}),
-          TweenLite.to(truthVision + ' .right', 0.5, {left: '66%', opacity:1})])
+          TweenLite.to(truthVision + ' .right', 0.5, {
+            left: '66%',
+            opacity:1
+          }),
+          TweenLite.to(truthVisionMobile + ' .sans', 0.5, {
+            y: 0,
+            opacity: 1
+          })])
     .add(TweenLite.to(truthVision, 0.5, {opacity: 1}))
     .add(TweenLite.to(truthVision, 0.5, {opacity: 0}))
-    .add(TweenLite.to(truthText, 0.25, {opacity: 1, marginTop: 0}))
+    .add(TweenLite.to(truthText, 0.25, {
+            opacity: 1,
+            marginTop: 0
+          }))
     .add(TweenLite.to(truth, 1, {opacity: 1}))
     .add([TweenLite.to(truth, 0.5, {opacity: 0}),
           TweenLite.to(vision, 0.5, {opacity: 1})])
-    .add(TweenLite.to(visionText, 0.25, {opacity: 1, marginTop: 0}))
+    .add(TweenLite.to(visionText, 0.25, {
+            opacity: 1,
+            marginTop: 0
+          }))
     .add(TweenLite.to(vision, 1, {opacity: 1}));
 
   new ScrollMagic.Scene({
@@ -182,7 +201,7 @@
         triggerElement: truthVisionSlides,
         triggerHook: 0.5
       })
-      .setTween(truthVision + ' .left', {
+      .setTween(truthVision + ' .display-serif', {
         rotationX: 0,
         opacity: 1
       })

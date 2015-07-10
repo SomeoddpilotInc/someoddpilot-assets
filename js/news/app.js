@@ -19,7 +19,7 @@ function postsService($http, blogUrl, apiKey) {
 }
 function config($routeProvider) {
   $routeProvider.
-    when('/', {
+    when('/:page', {
       templateUrl: '/templates/news/archive.html',
       controller: 'listingCtrl'
     }).
@@ -28,7 +28,7 @@ function config($routeProvider) {
       controller: 'detailCtrl'
     }).
     otherwise({
-      redirectTo: '/'
+      redirectTo: '/1'
     });
 }
 angular.module('tumblrApp', ['ngResource', 'ngRoute', 'ngAnimate', 'masonry'])

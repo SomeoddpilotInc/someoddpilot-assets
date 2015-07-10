@@ -1,8 +1,7 @@
 (function invoke() {
   "use strict";
   function ListingCtrl(posts, $sce, $routeParams, $document) {
-    this.page = parseInt($routeParams.page, 10);
-    this.offset = (this.page - 1) * 9;
+    this.offset = 0;
     this.postsService = posts;
     this.tag = $routeParams.tag;
     this.id = $routeParams.id;
@@ -43,8 +42,9 @@
       }
       return item;
   }
-  ListingCtrl.prototype.loadMore = function () {
-    this.$element.trigger('posts-load');
+  ListingCtrl.prototype.next = function next() {
+    this.offset = this.offset + 9;
+    this.queryPosts();
   }
   angular.module('tumblrApp')
   .controller('listingCtrl', ListingCtrl)

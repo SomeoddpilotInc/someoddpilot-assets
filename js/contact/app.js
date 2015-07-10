@@ -20,11 +20,11 @@ function postsService($http, blogUrl, apiKey) {
 function config($routeProvider, $locationProvider) {
   $routeProvider.
     when('/', {
-      templateUrl: '/templates/news/archive.html',
+      templateUrl: '/templates/careers.html',
       controller: 'listingCtrl'
     }).
-    when('/detail/:id', {
-      templateUrl: '/templates/news/detail.html',
+    when('/career/:id', {
+      templateUrl: '/templates/careers-detail.html',
       controller: 'detailCtrl'
     }).
     otherwise({
@@ -32,7 +32,7 @@ function config($routeProvider, $locationProvider) {
     });
 }
 angular.module('tumblrApp', ['ngResource', 'ngRoute', 'ngAnimate'])
-  .value('blogUrl', 'publicworksgallery.tumblr.com')
+  .value('blogUrl', 'someoddpilot.tumblr.com')
   .value('apiKey', 'sPaI49yeoSpM27Oy2Ir8SPufAkgyikRQ5GVBwFl9K33YDub749')
   .service('posts', postsService)
   .config(config);

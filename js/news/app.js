@@ -17,9 +17,9 @@ function postsService($http, blogUrl, apiKey) {
     }
   };
 }
-function config($routeProvider, $locationProvider) {
+function config($routeProvider) {
   $routeProvider.
-    when('/:page', {
+    when('/', {
       templateUrl: '/templates/news/archive.html',
       controller: 'listingCtrl'
     }).
@@ -28,14 +28,11 @@ function config($routeProvider, $locationProvider) {
       controller: 'detailCtrl'
     }).
     otherwise({
-      redirectTo: '/1'
+      redirectTo: '/'
     });
 }
-angular.module('tumblrApp', ['ngResource', 'ngRoute', 'ngAnimate'])
-  .value('blogUrl', 'publicworksgallery.tumblr.com')
+angular.module('tumblrApp', ['ngResource', 'ngRoute', 'ngAnimate', 'masonry'])
+  .value('blogUrl', 'someoddpilot.tumblr.com')
   .value('apiKey', 'sPaI49yeoSpM27Oy2Ir8SPufAkgyikRQ5GVBwFl9K33YDub749')
   .service('posts', postsService)
-  .config(config)
-  .controller('routeController', ['$scope', '$location', function($scope, $location) {
-    $scope.showInsta = $location.path() === '/1';
-  }]);
+  .config(config);

@@ -17,7 +17,7 @@ function postsService($http, blogUrl, apiKey) {
     }
   };
 }
-function config($routeProvider, $locationProvider) {
+function config($routeProvider) {
   $routeProvider.
     when('/', {
       templateUrl: '/templates/careers.html',

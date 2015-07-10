@@ -2,6 +2,7 @@
   "use strict";
   function ListingCtrl(posts, $sce, $routeParams, $document) {
     this.offset = 0;
+    this.limit = 9;
     this.postsService = posts;
     this.tag = $routeParams.tag;
     this.id = $routeParams.id;
@@ -12,7 +13,7 @@
   ListingCtrl.prototype.queryPosts = function queryPosts() {
     this.postsService
       .get({
-        limit: 9,
+        limit: this.limit,
         offset: this.offset,
         tag: this.tag,
         id: this.id,
@@ -43,7 +44,7 @@
       return item;
   }
   ListingCtrl.prototype.next = function next() {
-    this.offset = this.offset + 9;
+    this.limit = this.limit + 9;
     this.queryPosts();
   }
   angular.module('tumblrApp')

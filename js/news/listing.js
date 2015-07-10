@@ -43,6 +43,9 @@
       }
       return item;
   }
+  ListingCtrl.prototype.loadMore = function () {
+    this.$element.trigger('posts-load');
+  }
   angular.module('tumblrApp')
   .controller('listingCtrl', ListingCtrl)
 }());

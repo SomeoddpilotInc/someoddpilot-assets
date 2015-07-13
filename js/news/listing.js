@@ -1,14 +1,14 @@
 (function invoke() {
   "use strict";
   function ListingCtrl(posts, $sce, $routeParams, $document) {
+    this.page = parseInt($routeParams.page, 10);
     this.offset = 0;
-    this.limit = 9;
+    this.limit = (this.page - 1) * 9;
     this.postsService = posts;
     this.tag = $routeParams.tag;
     this.id = $routeParams.id;
     this.type = $routeParams.type;
     this.$sce = $sce;
-    this.posts = [];
     this.loading = false;
     this.queryPosts();
   }
@@ -28,7 +28,7 @@
       });
   };
   ListingCtrl.prototype.onSuccess = function onSuccess(data) {
-    this.newPosts = data.response.posts.map(this.mapPosts.bind(this));
+    this.posts = data.response.posts.map(this.mapPosts.bind(this));
     this.posts = _.union(this.posts, this.newPosts);
     this.loading = false;
     this.total_posts = data.response.total_posts;
@@ -49,7 +49,6 @@
       return item;
   };
   ListingCtrl.prototype.next = function next() {
-    this.offset = this.offset + 9;
     this.loading = true;
     this.queryPosts();
   };

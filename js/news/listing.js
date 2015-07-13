@@ -8,6 +8,7 @@
     this.id = $routeParams.id;
     this.type = $routeParams.type;
     this.$sce = $sce;
+    this.posts = [];
     this.queryPosts();
   }
   ListingCtrl.prototype.queryPosts = function queryPosts() {
@@ -23,12 +24,13 @@
       .error(function () {
         console.log("Request failed");
       });
-  }
+  };
   ListingCtrl.prototype.onSuccess = function onSuccess(data) {
-    this.posts = data.response.posts.map(this.mapPosts.bind(this));
+    this.newPosts = data.response.posts.map(this.mapPosts.bind(this));
+    this.posts = _.union(this.posts, this.newPosts);
     this.total_posts = data.response.total_posts;
     console.log(data.response);
-  }
+  };
   ListingCtrl.prototype.mapPosts = function (item) {
       item.photo = (item.photos) ?
         item.photos.shift() :
@@ -42,11 +44,11 @@
         item.embed = this.$sce.trustAsHtml(item.embed);
       }
       return item;
-  }
+  };
   ListingCtrl.prototype.next = function next() {
-    this.limit = this.limit + 9;
+    this.offset = this.offset + 9;
     this.queryPosts();
-  }
+  };
   angular.module('tumblrApp')
-  .controller('listingCtrl', ListingCtrl)
+  .controller('listingCtrl', ListingCtrl);
 }());

@@ -3,7 +3,8 @@
   function ListingCtrl(posts, $sce, $routeParams, $document) {
     this.page = parseInt($routeParams.page, 10);
     this.offset = 0;
-    this.limit = (this.page - 1) * 9;
+    this.limit = 9;
+    this.posts = [];
     this.postsService = posts;
     this.tag = $routeParams.tag;
     this.id = $routeParams.id;
@@ -28,11 +29,11 @@
       });
   };
   ListingCtrl.prototype.onSuccess = function onSuccess(data) {
-    this.posts = data.response.posts.map(this.mapPosts.bind(this));
+    this.newPosts = data.response.posts.map(this.mapPosts.bind(this));
     this.posts = _.union(this.posts, this.newPosts);
     this.loading = false;
     this.total_posts = data.response.total_posts;
-    console.log(data.response);
+    console.log(this.posts);
   };
   ListingCtrl.prototype.mapPosts = function (item) {
       item.photo = (item.photos) ?
@@ -49,6 +50,7 @@
       return item;
   };
   ListingCtrl.prototype.next = function next() {
+    this.offset = this.offset + 9;
     this.loading = true;
     this.queryPosts();
   };

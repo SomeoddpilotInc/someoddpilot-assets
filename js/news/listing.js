@@ -9,6 +9,7 @@
     this.type = $routeParams.type;
     this.$sce = $sce;
     this.posts = [];
+    this.loading = false;
     this.queryPosts();
   }
   ListingCtrl.prototype.queryPosts = function queryPosts() {
@@ -22,12 +23,14 @@
       })
       .success(this.onSuccess.bind(this))
       .error(function () {
+        this.loading = false;
         console.log("Request failed");
       });
   };
   ListingCtrl.prototype.onSuccess = function onSuccess(data) {
     this.newPosts = data.response.posts.map(this.mapPosts.bind(this));
     this.posts = _.union(this.posts, this.newPosts);
+    this.loading = false;
     this.total_posts = data.response.total_posts;
     console.log(data.response);
   };
@@ -47,6 +50,7 @@
   };
   ListingCtrl.prototype.next = function next() {
     this.offset = this.offset + 9;
+    this.loading = true;
     this.queryPosts();
   };
   angular.module('tumblrApp')

@@ -19,19 +19,19 @@ function postsService($http, blogUrl, apiKey) {
 }
 function config($routeProvider) {
   $routeProvider.
-    when('/', {
-      templateUrl: '/templates/careers.html',
+    when('/:page', {
+      templateUrl: '/templates/contact/archive.html',
       controller: 'listingCtrl'
     }).
-    when('/career/:id', {
-      templateUrl: '/templates/careers-detail.html',
+    when('/detail/:id', {
+      templateUrl: '/templates/contact/detail.html',
       controller: 'detailCtrl'
     }).
     otherwise({
-      redirectTo: '/'
+      redirectTo: '/1'
     });
 }
-angular.module('tumblrApp', ['ngResource', 'ngRoute', 'ngAnimate'])
+angular.module('careerApp', ['ngResource', 'ngRoute', 'ngAnimate', 'masonry'])
   .value('blogUrl', 'someoddpilot.tumblr.com')
   .value('apiKey', 'sPaI49yeoSpM27Oy2Ir8SPufAkgyikRQ5GVBwFl9K33YDub749')
   .service('posts', postsService)

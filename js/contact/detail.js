@@ -43,6 +43,6 @@
       }
       return item;
   }
-  angular.module('tumblrApp')
+  angular.module('careerApp')
   .controller('detailCtrl', DetailCtrl)
 }());

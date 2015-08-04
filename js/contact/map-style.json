@@ -26,7 +26,7 @@
         "saturation": -80
     }, {
         "lightness": -20
-    }, ]
+    }]
 }, {
     "featureType": "road.highway",
     "stylers": [{

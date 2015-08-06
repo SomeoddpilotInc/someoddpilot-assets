@@ -20,7 +20,8 @@
         offset: this.offset,
         tag: this.tag,
         id: this.id,
-        type: this.type
+        type: this.type,
+        total_posts: this.total_posts
       })
       .success(this.onSuccess.bind(this))
       .error(function () {
@@ -33,7 +34,7 @@
     this.posts = _.union(this.posts, this.newPosts);
     this.loading = false;
     this.total_posts = data.response.total_posts;
-    console.log(this.posts);
+    console.log(this.total_posts);
   };
   ListingCtrl.prototype.mapPosts = function (item) {
       item.photo = (item.photos) ?

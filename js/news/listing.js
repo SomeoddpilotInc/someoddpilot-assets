@@ -33,7 +33,6 @@
     this.posts = _.union(this.posts, this.newPosts);
     this.loading = false;
     this.total_posts = data.response.total_posts;
-    console.log(this.posts);
   };
   ListingCtrl.prototype.mapPosts = function (item) {
       item.photo = (item.photos) ?

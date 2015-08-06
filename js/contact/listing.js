@@ -34,6 +34,7 @@
     this.posts = _.union(this.posts, this.newPosts);
     this.loading = false;
     this.total_posts = data.response.total_posts;
+    console.log(this.posts);
   };
   ListingCtrl.prototype.mapPosts = function (item) {
       item.photo = (item.photos) ?
@@ -41,13 +42,13 @@
         undefined;
       item.body = this.$sce.trustAsHtml(item.body);
       item.body_abstract = this.$sce.trustAsHtml(item.body_abstract);
-      if (item.type === 'video') {
-        item.player[0].embed_code = this.$sce.trustAsHtml(item.player[0].embed_code);
-      }
-      if (item.type === 'audio') {
-        item.embed = this.$sce.trustAsHtml(item.embed);
+      if (item.tags[0] === 'career') {
+        return item;
+      } else {
+        return;
       }
       return item;
+      console.log(item);
   };
   ListingCtrl.prototype.next = function next() {
     this.offset = this.offset + 9;

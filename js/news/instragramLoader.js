@@ -39,7 +39,6 @@
 
   InstagramLoader.prototype.load = function load() {
     $.ajax(this.getParams());
-    console.log(this);
   };
 
   InstagramLoader.prototype.loadSuccess = function loadSuccess(response) {

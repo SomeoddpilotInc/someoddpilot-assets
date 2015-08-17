@@ -32,13 +32,11 @@
       leader = '.about-leader',
       leaderContainer = '.about-leader .black-container',
       leaderText = '.about-leader p:first-child',
-      leaderText2 = '.about-leader p:nth-child(2)',
       toc = '.toc',
       baseDuration = $(window).height();
 
   TweenLite.set(logo, { className: '+=header-logo--hide' });
   TweenLite.set(leaderText, { opacity: 1 });
-  TweenLite.set(leaderText2, { opacity: 0 });
   TweenLite.set(toc, { opacity: 0, scale: 0 });
 
   new ScrollMagic.Scene({
@@ -79,32 +77,8 @@
       .addIndicators({name: 'p '});
 
   new ScrollMagic.Scene({
-        duration: baseDuration * 0.1,
-        offset: baseDuration * 0.5,
-        triggerElement: leader,
-        triggerHook: 'onLeave'
-      })
-      .setTween(leaderText2, {
-        opacity: 1
-      })
-      .addTo(aboutControllerIndex)
-      .addIndicators({name: 'p2 '});
-
-  new ScrollMagic.Scene({
-        duration: baseDuration * 0.1,
-        offset: baseDuration * 1.1,
-        triggerElement: leader,
-        triggerHook: 'onLeave'
-      })
-      .setTween(leaderText2, {
-        opacity: 0
-      })
-      .addTo(aboutControllerIndex)
-      .addIndicators({name: 'p3 '});
-
-  new ScrollMagic.Scene({
         duration: baseDuration * 0.2,
-        offset: baseDuration * 1.2,
+        offset: baseDuration * 0.7,
         triggerElement: leader,
         triggerHook: 'onLeave'
       })
@@ -117,7 +91,7 @@
 
   new ScrollMagic.Scene({
         duration: baseDuration * 0.5,
-        offset: baseDuration * 1.7,
+        offset: baseDuration * 1.0,
         triggerElement: leader,
         triggerHook: 'onLeave'
       })
@@ -129,7 +103,7 @@
 
   new ScrollMagic.Scene({
         duration: 0,
-        offset: baseDuration * 1.8,
+        offset: baseDuration * 1.1,
         triggerElement: leader,
         triggerHook: 'onLeave'
       })

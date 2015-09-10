@@ -1,7 +1,7 @@
 (function($) {
   var aboutControllerCompleteThought = new ScrollMagic.Controller();
 
-  var mirror = '.reveal--1',
+  var mirror = '.mirror',
       mirrorWrap = '.mirrored-image-wrapper',
       mirror1 = '.mirror--1',
       mirror2 = '.mirror--2',
@@ -69,7 +69,6 @@
 
   new ScrollMagic.Scene({
         duration: '200%',
-        offset: $(window).height() * -1,
         triggerElement: mirror,
         triggerHook: 'onEnter'
       })

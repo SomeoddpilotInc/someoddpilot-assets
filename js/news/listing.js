@@ -1,6 +1,6 @@
 (function invoke() {
   "use strict";
-  function ListingCtrl(posts, $sce, $routeParams, $document) {
+  function ListingCtrl(posts, $sce, $routeParams, $document, $scope) {
     this.page = parseInt($routeParams.page, 10);
     this.offset = 0;
     this.limit = 9;
@@ -12,6 +12,11 @@
     this.$sce = $sce;
     this.loading = false;
     this.queryPosts();
+
+    var that = this;
+    $scope.$on('masonryReady', function(event) {
+      that.masonryReady();
+    });
   }
   ListingCtrl.prototype.queryPosts = function queryPosts() {
     this.postsService
@@ -31,7 +36,6 @@
   ListingCtrl.prototype.onSuccess = function onSuccess(data) {
     this.newPosts = data.response.posts.map(this.mapPosts.bind(this));
     this.posts = _.union(this.posts, this.newPosts);
-    this.loading = false;
     this.total_posts = data.response.total_posts;
   };
   ListingCtrl.prototype.mapPosts = function (item) {
@@ -52,6 +56,9 @@
     this.offset = this.offset + 9;
     this.loading = true;
     this.queryPosts();
+  };
+  ListingCtrl.prototype.masonryReady = function() {
+    this.loading = false;
   };
   angular.module('tumblrApp')
   .controller('listingCtrl', ListingCtrl);

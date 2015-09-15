@@ -25,6 +25,8 @@
                 masonry.layout();
 
                 iElem.children(options.itemSelector).css('visibility', 'visible');
+
+                scope.$broadcast('masonryReady');
               }, 1500);
             };
 

@@ -1,10 +1,16 @@
-function MainController($window, $rootScope, $scope, $route, $routeParams, $location) {
+function MainController($window, $rootScope, $scope, $route, $routeParams, $location, $timeout) {
   var that = this;
 
   this.rootScope = $rootScope;
+  this.scope = $scope;
   this.params = $routeParams;
   this.route = $route;
   this.videos = $window.videos;
+
+  this.mainVidArea = angular.element( document.getElementById('video-page__main') );
+  this.listing = angular.element( document.getElementById('video-page__listing') );
+  this.transitionTime = 500;
+  this.scrollOffset = 50;
 
   this.active = this.params.video || 'reel';
   this.rootScope.activeIndex = this.rootScope.activeIndex || 1;
@@ -26,21 +32,35 @@ function MainController($window, $rootScope, $scope, $route, $routeParams, $loca
     this.rootScope.activeIndex = this.rootScope.activeIndex + that.perpage;
   };
 
+  this.scrollToListing = function() {
+    angular.element(document).scrollToElementAnimated(
+      that.listing, 0, that.transitionTime
+    );
+  };
+
+  this.playReel = function() {
+
+    angular.element(document).scrollToElementAnimated(
+      that.mainVidArea, that.scrollOffset, that.transitionTime
+    );
+
+    $timeout(function() {
+      this.reelControls = that.mainVidArea.find('.vimeo__controls');
+      this.reelControls.trigger('click');
+    }, that.transitionTime);
+
+  };
+
+  this.scope.$on("$routeChangeStart", function (event, next, current) {
+    angular.element(document).scrollToElementAnimated(
+      that.mainVidArea, that.scrollOffset, that.transitionTime
+    );
+  });
+
   this.rootScope.$on("$routeChangeSuccess", function (event) {
     that.rootScope.autoplay = true;
   });
-}
 
-function sopVideoLink(scope, element, attrs) {
-  scope.$on("$routeChangeStart", function (event, next, current) {
-
-    var mainVidArea = angular.element(
-        document.getElementById('video-page__main')
-      );
-
-    angular.element(document).scrollToElementAnimated( mainVidArea, 50, 500 );
-
-  });
 }
 
 function config($routeProvider) {
@@ -70,7 +90,6 @@ angular.module('videoApp', ['ngRoute', 'video'])
       },
       templateUrl: '/js/video-player/templates/vimeo-template.html',
       controller: 'vimeoController',
-      controllerAs: 'vimeo',
-      link: sopVideoLink
+      controllerAs: 'vimeo'
     };
   });

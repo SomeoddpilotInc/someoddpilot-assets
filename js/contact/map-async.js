@@ -6,19 +6,19 @@ function loadScript(src, callback) {
   script.src = src;
 }
 
-loadScript('http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initialize',
-  function () {
-    console.log('google-loader has been loaded, but not the maps-API ');
-  });
+loadScript('http://maps.googleapis.com/maps/api/js?v=3&sensor=false&callback=initialize');
 
 function initialize() {
-  console.log('maps-API has been loaded, ready to use');
-  var myLatlng = new google.maps.LatLng(41.908553, -87.672523);
+  var windowWidth = $(window).innerWidth();
+  var offcenterLatlng = new google.maps.LatLng(41.908553, -87.672523);
+  var sopLatLag = new google.maps.LatLng(41.909424, -87.677227);
+  var mapLatLng = windowWidth >= 1200 ? offcenterLatlng : sopLatLag;
   var mapOptions = {
     zoom:   17,
-    center: myLatlng,
+    center: mapLatLng,
     disableDefaultUI: true,
     scrollwheel: false,
+    draggable: false,
     styles: [
       {
         stylers: [
@@ -31,7 +31,7 @@ function initialize() {
    mapOptions);
   var image = '/assets/images/custom_map_pin_black.png';
   var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(41.909424, -87.677227),
+    position: sopLatLag,
     icon: image,
     clickable: false,
     map: map

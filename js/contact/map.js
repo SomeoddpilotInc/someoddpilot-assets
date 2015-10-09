@@ -86,7 +86,9 @@ angular.module('map', [])
         var image = '/assets/images/custom_map_pin_black.png';
         var marker = new google.maps.Marker({
           position: new google.maps.LatLng(41.909424, -87.677227),
+          clickable: false,
           icon: image,
+          cursor: crosshair,
           map: map
         });
       }

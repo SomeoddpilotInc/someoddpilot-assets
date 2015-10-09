@@ -33,6 +33,7 @@ function initialize() {
   var marker = new google.maps.Marker({
     position: new google.maps.LatLng(41.909424, -87.677227),
     icon: image,
+    clickable: false,
     map: map
   });
 }

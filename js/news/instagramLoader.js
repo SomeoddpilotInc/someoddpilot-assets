@@ -43,9 +43,9 @@
 
   InstagramLoader.prototype.loadSuccess = function loadSuccess(response) {
     this.count = this.count + 1;
-
     this.nextMaxId = response.pagination.next_max_id;
 
+    this.$element.find("[instagram-items]").removeClass('instgrm-loading');
     this.$element.trigger('instagram-images-loaded', response);
 
   };

@@ -12,7 +12,7 @@ function initialize() {
   var windowWidth = $(window).innerWidth();
   var offcenterLatlng = new google.maps.LatLng(41.908553, -87.672523);
   var sopLatLag = new google.maps.LatLng(41.909424, -87.677227);
-  var mapLatLng = windowWidth >= 1200 ? offcenterLatlng : sopLatLag;
+  var mapLatLng = sopLatLag;
   var mapOptions = {
     zoom:   17,
     center: mapLatLng,

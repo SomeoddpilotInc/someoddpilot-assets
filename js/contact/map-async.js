@@ -29,7 +29,7 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById('map_canvas'),
    mapOptions);
-  var image = 'http://sop-assets.s3-website-us-west-2.amazonaws.com/assets/images/custom_map_pin_black.png';
+  var image = 'http://assets.someoddpilot.com/assets/images/custom_map_pin_black.png';
   var marker = new google.maps.Marker({
     position: sopLatLag,
     icon: image,

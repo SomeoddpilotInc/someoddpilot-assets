@@ -33,8 +33,13 @@ function initialize() {
   var marker = new google.maps.Marker({
     position: sopLatLag,
     icon: image,
-    clickable: false,
     map: map
+  });
+
+  marker.addListener('click', function() {
+    jQuery('html, body').animate({
+      scrollTop: jQuery('#map_canvas').offset().top + jQuery('#map_canvas').height() - 50
+    }, 1000);
   });
 }
 

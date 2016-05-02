@@ -1,4 +1,4 @@
-(function ($) {
+(function ($, _) {
   function InstagramLoader(element) {
     this.element = element;
     this.$element = $(element);
@@ -59,4 +59,4 @@
   $('[instagram-loader]').each(function (index, element) {
     $(element).data('instagram-loader', new InstagramLoader(element));
   });
-}(jQuery));
+})(jQuery, _);

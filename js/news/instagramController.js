@@ -64,4 +64,4 @@
     $(element).data('instagram-gallery', new InstagramGallery(element));
   });
 
-}(jQuery, _));
+})(jQuery, _);

@@ -26,12 +26,10 @@
   InstagramLoader.prototype.getParams = function getParams() {
     return {
       type:     'GET',
-      dataType: 'jsonp',
-      url:      'https://api.instagram.com/v1/users/' + this.getUserId() + '/media/recent',
+      dataType: 'json',
+      url:      'https://nip6jn47u7.execute-api.us-west-2.amazonaws.com/prod/feed/' + this.getUserId(),
       data: {
-        max_id: this.nextMaxId,
-        count: this.getCount(),
-        client_id: this.$element.data('client-id')
+        count: this.getCount()
       },
       success: $.proxy(this.loadSuccess, this)
     };
@@ -43,7 +41,6 @@
 
   InstagramLoader.prototype.loadSuccess = function loadSuccess(response) {
     this.count = this.count + 1;
-    this.nextMaxId = response.pagination.next_max_id;
 
     this.$element.find("[instagram-items]").removeClass('instgrm-loading');
     this.$element.trigger('instagram-images-loaded', response);

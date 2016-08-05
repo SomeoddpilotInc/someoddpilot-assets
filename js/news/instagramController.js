@@ -33,7 +33,7 @@
   InstagramGallery.prototype.reduceGroups = function reduceGroups(memo, group) {
     var itemsHtml = _.reduce(
       group,
-      this.reduceGroup,
+      $.proxy(this.reduceGroup, this),
       '',
       this
     );
@@ -55,7 +55,7 @@
   InstagramGallery.prototype.onLoaded = function onLoaded(event, response) {
     var html = _(response.data)
       .groupBy(this.groupImages, this)
-      .reduce(this.reduceGroups, '', this);
+      .reduce($.proxy(this.reduceGroups, this), '', this);
 
       this.$element.find("[instagram-items]").append(html);
   };

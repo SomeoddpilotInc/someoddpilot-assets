@@ -18,7 +18,7 @@
     this.loadMore();
   }
 
-  InstagramGallery.prototype.getTemplate = function getTemplate(attribute) {
+  InstagramGallery.prototype.getTemplate = function (attribute) {
     return _.template(
       $(
         '#' + this.$element.data(attribute)
@@ -30,7 +30,7 @@
     this.$element.trigger("instagram-images-load");
   };
 
-  InstagramGallery.prototype.reduceGroups = function reduceGroups(memo, group) {
+  InstagramGallery.prototype.reduceGroups = function (memo, group) {
     var itemsHtml = _.reduce(
       group,
       $.proxy(this.reduceGroup, this),
@@ -44,15 +44,15 @@
       });
   };
 
-  InstagramGallery.prototype.reduceGroup = function reduceGroup(memo, imageData) {
+  InstagramGallery.prototype.reduceGroup = function (memo, imageData) {
     return memo + this.template(imageData);
   };
 
-  InstagramGallery.prototype.groupImages = function groupImages(imageData, index) {
+  InstagramGallery.prototype.groupImages = function (imageData, index) {
     return Math.floor(index / this.itemsPerGroup);
   };
 
-  InstagramGallery.prototype.onLoaded = function onLoaded(event, response) {
+  InstagramGallery.prototype.onLoaded = function (event, response) {
     var html = _(response.data)
       .groupBy(this.groupImages, this)
       .reduce($.proxy(this.reduceGroups, this), '', this);

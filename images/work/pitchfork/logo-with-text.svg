@@ -5,18 +5,18 @@
 <style type="text/css">
 	.st0{fill:#F0533C;}
 	.st1{fill:none;stroke:#FFFFFF;stroke-width:4.9737;}
-	.st2{fill:none;stroke:#636466;stroke-width:4.8494;}
-	.st3{fill:none;stroke:#636466;stroke-width:5.8149;}
-	.st4{fill:#636466;stroke:#636466;stroke-width:5;}
+	.st2{fill:none;stroke:#4D4D4F;stroke-width:4.8494;}
+	.st3{fill:none;stroke:#4D4D4F;stroke-width:5.8149;}
+  .st4{fill:#4D4D4F;stroke:#4D4D4F;stroke-width:5;}
 	.st5{fill:#FFFFFF;}
 </style>
 <g>
 	<g>
-		<polygon class="st0" points="-1256.9,1478.3 -1266,1478.3 -1263.3,1481 -1282.5,1500.2 -1278.1,1503.5 -1259.5,1484.8 
+		<polygon class="st0" points="-1256.9,1478.3 -1266,1478.3 -1263.3,1481 -1282.5,1500.2 -1278.1,1503.5 -1259.5,1484.8
 			-1256.9,1487.5 		"/>
-		<polygon class="st0" points="-1244,1481.1 -1253.1,1481.1 -1250.5,1483.8 -1272.8,1506.1 -1269,1509.9 -1246.7,1487.6 
+		<polygon class="st0" points="-1244,1481.1 -1253.1,1481.1 -1250.5,1483.8 -1272.8,1506.1 -1269,1509.9 -1246.7,1487.6
 			-1244,1490.3 		"/>
-		<polygon class="st0" points="-1241.4,1494.2 -1250.5,1494.2 -1247.9,1496.8 -1267.1,1516 -1259.6,1516.2 -1244,1500.6 
+		<polygon class="st0" points="-1241.4,1494.2 -1250.5,1494.2 -1247.9,1496.8 -1267.1,1516 -1259.6,1516.2 -1244,1500.6
 			-1241.4,1503.3 		"/>
 	</g>
 	<g>

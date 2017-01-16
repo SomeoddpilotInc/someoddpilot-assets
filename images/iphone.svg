@@ -93,7 +93,9 @@
 		C4.5,70.448,59.448,2,144.5,2h794c85.053,0,140,68.448,140,153.5L1080.5,2037z"/>
 	<g id="base_6_">
 		<linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="542.4995" y1="0" x2="542.4994" y2="2196.0005">
-			<stop  offset="0.7" style="stop-color:#FFFFFF"/>
+			<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0"/>
+			<stop  offset="0.2" style="stop-color:#FFFFFF"/>
+			<stop  offset="0.8" style="stop-color:#FFFFFF"/>
 			<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
 		</linearGradient>
 		<path fill="url(#SVGID_5_)" d="M938.25,32c31.521,0,58.601,11.612,78.072,33.581c19.38,21.865,30.115,52.733,30.115,86.953

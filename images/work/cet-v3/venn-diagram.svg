@@ -11,11 +11,12 @@
 	.st5{filter:url(#blurMe);}
 	.st6{display:none;fill:none;stroke:#14DED0;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
 	.st7{filter:url(#AI_GaussianBlur_4);}
-	.st8{fill:none;stroke:#14DED0;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;}
+	.st8{fill:none;stroke:#14DED0;stroke-width:8;stroke-linecap:round;stroke-miterlimit:10;}
 	.st9{opacity:0.6;filter:url(#AI_GaussianBlur_8);}
-	.st10{filter:url(#AI_GaussianBlur_8);}
-	.st11{opacity:0.3;fill:none;stroke:#14DED0;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;enable-background:new    ;}
-	.st12{fill:none;stroke:#14DED0;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
+	.st10{fill:none;stroke:#14DED0;stroke-width:5;stroke-linecap:round;stroke-miterlimit:10;}
+	.st11{filter:url(#AI_GaussianBlur_8);}
+	.st12{opacity:0.3;fill:none;stroke:#14DED0;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;enable-background:new    ;}
+	.st13{fill:none;stroke:#14DED0;stroke-width:4;stroke-linecap:round;stroke-miterlimit:10;}
 </style>
 <filter  id="blurMe">
 	<feGaussianBlur  stdDeviation="14"></feGaussianBlur>
@@ -40,18 +41,18 @@
 			C964.7,478,960,484,960,484z"/>
 	</g>
 	<g id="triangleLineGlow4" class="st7">
-		<path class="st8" d="M958.6,483c-41.8,34.2-68.5,80-81.6,134.8c27.6,10.8,53.5,18.7,84.8,18.7c29.3,0,57.4-5.2,83.5-14.7
-			C1032.4,566.1,1001.2,517.5,958.6,483z"/>
+		<path class="st8" d="M958.6,483c-41.8,33.6-68.5,78.5-81.6,132.3c27.6,10.6,53.5,18.4,84.8,18.4c29.3,0,57.4-5.1,83.5-14.4
+			C1032.4,564.6,1001.2,516.9,958.6,483z"/>
 	</g>
 	<g id="triangleLineGlow8" class="st9">
-		<path class="st8" d="M960,474.5c-47.3,38-78.1,88.5-92.8,149.4c31.1,12,60.7,20.6,96.1,20.6c33.1,0,59.6-9,89.1-19.6
+		<path class="st10" d="M960,474.5c-47.3,38-78.1,88.5-92.8,149.4c31.1,12,60.7,20.6,96.1,20.6c33.1,0,59.6-9,89.1-19.6
 			C1037.5,563.1,1008.1,512.8,960,474.5z"/>
 	</g>
-	<g id="triangleLineGlowBig8" class="st10">
-		<path class="st11" d="M962.2,483c-70.1,35.5-82,50.4-85.2,132.2c37.8,36.4,122.6,43.3,164-4.7
+	<g id="triangleLineGlowBig8" class="st11">
+		<path class="st12" d="M962.2,483c-70.1,35.5-82,50.4-85.2,132.2c37.8,36.4,122.6,43.3,164-4.7
 			C1032.1,532.2,1029.9,522.5,962.2,483z"/>
 	</g>
-	<path id="venn" class="st12" d="M809.8,432.8c133,0,240.8,107.8,240.8,240.8S942.7,914.4,809.8,914.4S569,806.6,569,673.6
+	<path id="venn" class="st13" d="M809.8,432.8c133,0,240.8,107.8,240.8,240.8S942.7,914.4,809.8,914.4S569,806.6,569,673.6
 		S676.8,432.8,809.8,432.8z M869.7,672.8c0,132.9,107.7,240.7,240.7,240.7S1351,805.7,1351,672.8s-107.7-240.7-240.7-240.7
 		S869.7,539.9,869.7,672.8z M722,390.8c0,133,107.8,240.8,240.8,240.8s240.8-107.8,240.8-240.8S1095.8,150,962.8,150
 		S722,257.8,722,390.8z"/>

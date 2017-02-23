@@ -24,7 +24,7 @@
 <filter  id="AI_GaussianBlur_10">
 	<feGaussianBlur  stdDeviation="10"></feGaussianBlur>
 </filter>
-<rect x="0.5" y="0.5" class="st0" width="1919" height="1080"/>
+<rect x="-2" y="-3" class="st0" width="1925" height="1086"/>
 <g>
 	<text transform="matrix(1 0 0 1 649.1875 665.0991)"><tspan x="0" y="0" class="st1 st2 st3">Start-ups</tspan><tspan x="-31.5" y="37.7" class="st1 st2 st3">&amp; Innovators</tspan></text>
 	<text transform="matrix(1 0 0 1 1111.0977 702.0991)" class="st1 st2 st3">Investors</text>
